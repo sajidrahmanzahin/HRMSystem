@@ -1,0 +1,118 @@
+/* src/index.css */
+@import "tailwindcss";
+
+:root {
+  --bg-charcoal: #1a202c;
+  --dark-lavender: #2d3748;
+  --primary-blue: #5678e6;
+  --soft-purple: #8a6ed1;
+  --secondary-lavender: #7a5db0;
+  --pale-blue-purple: #8b7ec8;
+  --text-gray: #a0aec0;
+  --border-gray: #4a5568;
+  --light-lavender: #2d3748;
+  --accent-blue: #4a90e2;
+}
+
+.bg-dark {
+  @apply bg-[var(--bg-charcoal)];
+}
+
+.bg-light {
+  @apply bg-[var(--light-lavender)];
+}
+
+.text-primary {
+  @apply text-[var(--primary-blue)];
+}
+
+.text-secondary {
+  @apply text-[var(--soft-purple)];
+}
+
+.text-accent {
+  @apply text-[var(--pale-blue-purple)];
+}
+
+.hover-advanced {
+  @apply transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(56,78,226,0.3)] hover:text-[var(--primary-blue)];
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Glassmorphism-like effect for advanced design */
+.glass {
+  @apply bg-[var(--light-lavender)]/20 backdrop-blur-md border border-[var(--border-gray)]/50 rounded-xl shadow-lg;
+}
+
+/* Drag and drop styling */
+.draggable-card {
+  @apply bg-white rounded-xl p-4 border border-[var(--border-gray)] shadow-md cursor-move hover:shadow-[0_0_15px_rgba(56,78,226,0.2)] transition-all;
+}
+
+.draggable-card.dragging {
+  @apply opacity-50;
+}
+
+/* Light Theme */
+.light-theme {
+  --bg-charcoal: #ffffff; /* White background for light theme */
+  --secondary-lavender: #d9d8f5; /* Lighter lavender for secondary backgrounds */
+  --light-lavender: #f8f7ff; /* Very light lavender for subtle highlights */
+  --text-gray: #333; /* Dark gray for text */
+  --border-gray: #d4d4d8; /* Lighter gray for borders */
+  --primary-blue: #384ee2; /* Keep vibrant blue for primary accents */
+  --soft-purple: #8a80e3; /* Keep soft purple for highlights */
+  --pale-blue-purple: #a2a6ed; /* Keep pale blue-purple for additional accents */
+}
+
+/* Ensure dark theme is applied by default */
+body {
+  @apply bg-[var(--bg-charcoal)] text-white;
+}
+
+body.light-theme {
+  @apply bg-white text-[var(--text-gray)];
+}
+
+// Add this CSS in index.css or a global stylesheet for the animation
+/* index.css */
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
